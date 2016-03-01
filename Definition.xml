@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<ExtensionObject Label="KPI Container"> 
+	<Dimension Label="Dimension" Initial="" />
+	<Text Label="Dimension Label" Type="text" Expression="Pillar"/>
+	<Measurement Label="Responsible Party Image" Initial=""/>
+	<Text Label="QVS" Type="text" Expression="win12qlikserv"/>
+	<Text Label="QVW Mount Point/Filename" Type="text" Expression="Test Extensions/test Extensions.qvw"/>
+	<Measurement Label="Responsible Party" Initial=""/>
+	<Measurement Label="Overall Score" Initial=""/>
+	<Measurement Label="Trend Change" Initial=""/>
+	<Measurement Label="Trend" Initial=""/>
+	<Text Label="Status Progress (Y|N)" Type="checkbox"/>
+	<Measurement Label="Status Progress Config" Initial=""/>
+	<Text Label="Gauge (Y|N)" Type="checkbox"/>
+	<Measurement Label="Gauge Config" Initial=""/>
+	<Text Label="Metric Class (Y|N)" Type="checkbox"/>
+	<Measurement Label="Metric Class" Initial=""/>
+	
+	<!--Synthesis data-->
+	<Text Label="DB Dimension Field" Type="text" Expression="METRICNAME"/>
+	<Text Label="DB User ID Field" Type="text" Expression="UPDATE_USERID"/>
+	<Measurement Label="User ID" Initial=""/>
+	<Text Label="DB Datetime Field" Type="text" Expression="UPDATE_DTTM"/>
+	<Text Label="DB Synthesis Field" Type="text" Expression="SYNTHESIS"/>
+	<Text Label="DB Name" Type="text" Expression="SecurityDashboard"/>
+	<Text Label="DB Table Name" Type="text" Expression="METRIC_SYNTHESIS"/>
+	<Text Label="DB Connection String" Type="text" Expression="Server=WIN12QLIKSERV\SQLEXPRESS;Integrated Security=true"/>
+	<Text Label="Webservice URL" Type="text" Expression="http://localhost:53338"/>
+	
+	<Text Label="Color - Green" Type="color" Expression="#99FF66"/>
+	<Text Label="Color - Amber" Type="color" Expression="#FFFF99"/>
+	<Text Label="Color - Red" Type="color" Expression="#CC3300"/>
+	<Text Label="Upper Threshold" Type="text" Expression="7"/>
+	<Text Label="Lower Threshold" Type="text" Expression="4"/>
+    <Initiate Name="Caption.Text" value="KPI Container" /> 
+	
+	<!-- Initial Properties -->
+	<Initiate Name="Chart.Dimension.0.Field" Value="Pillar Name" />
+	<Initiate Name="Chart.Expression.0.0.Definition" Value="only('RP Name/'&[RP Name])" />
+	<Initiate Name="Chart.Expression.1.0.Definition" Value="only([RP Name])"/>
+	<Initiate Name="Chart.Expression.2.0.Definition" Value="SUM(OverallScore)"/>
+	<Initiate Name="Chart.Expression.3.0.Definition" Value="3"/>
+	<Initiate Name="Chart.Expression.4.0.Definition" Value="CONCAT(Value,',',Month)"/>
+	<Initiate Name="Chart.Expression.5.0.Definition" Value=""/>
+	<Initiate Name="Chart.Expression.6.0.Definition" Value=""/>
+	<Initiate Name="Chart.Expression.7.0.Definition" Value=""/>
+	<Initiate Name="Chart.Expression.8.0.Definition" Value="MetricClass"/>
+	<Initiate Name="Chart.Expression.9.0.Definition" Value="OSUSER()"/>
+</ExtensionObject>
