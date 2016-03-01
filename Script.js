@@ -752,12 +752,15 @@ Qva.LoadScript("/QvAjaxZfc/QvsViewClient.aspx?public=only&name=Extensions/KPI Co
 				var nest = d3.nest()
 					.key(function(d) { return d.group; });
 
+
+				//The stack layout takes an array of layer objects, each having a series (array) of point objects as a member. 
 				var stack = d3.layout.stack()
 					.offset("zero")
 					.values(function(d) { return d.values; })
 					.x(function(d, i) { return i; })
 					.y(function(d) { return d.value; });
 
+				//Constructs a new linear scale with the default domain [0,1] and the default range [0,1]. Thus, the default linear scale is equivalent to the identity function for numbers	
 				var x = d3.scale.linear()
 					.range([barWidth, divWidth-barWidth]);
 
@@ -767,7 +770,7 @@ Qva.LoadScript("/QvAjaxZfc/QvsViewClient.aspx?public=only&name=Extensions/KPI Co
 				var color = [];
 				color.push(tblProperties.ColorGreen, tblProperties.ColorAmber, tblProperties.ColorRed);
 
-
+				//Constructs a new area generator with the default x-, y0- and y1-accessor functions (that assume the input data is a two-element array of numbers; see below for details), and linear interpolation. 
 				var area = d3.svg.area()
 					.x(function(d, i) { return x(i); })
 					.y0(function(d) { return y(d.y0); })
